@@ -10,6 +10,7 @@ using GroupWebProject.Models;
 
 namespace GroupWebProject.Pages.Customers
 {
+
     public class CreateModel : PageModel
     {
         private readonly GroupWebProject.Data.ApplicationDbContext _context;
