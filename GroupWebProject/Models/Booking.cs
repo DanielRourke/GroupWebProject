@@ -22,6 +22,9 @@ namespace GroupWebProject.Models
         /// <summary>
         /// Foreign Key For Customer
         /// </summary>
+        /// 
+        [Required]
+        [DataType(DataType.EmailAddress)]
         public string CustomerEmail { get; set; }
 
         /// <summary>
