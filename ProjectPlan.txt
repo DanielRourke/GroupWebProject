@@ -1,4 +1,18 @@
+Project Plan
 Mark Does stuff ending in even numbers
 Daniel Does stuff ending in odd numbers
-use git
+OR whoever gets to it first
 
+use git for development collaboration
+use discord for communication
+
+
+Meeting 1 checkpoints
+Website runs with Register and Login Links
+Register and Login work as expected
+ASPNetUsers Tables is filled as expected
+
+Progesss So Far
+Created Plan (This document)
+1 Creating project in Visual Studio (VS) Mark
+5 Models Daniel
