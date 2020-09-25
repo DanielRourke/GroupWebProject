@@ -38,10 +38,10 @@ TODO
 - [ ] 6  Customer Pages 
 	- [ ] Authorise pages
 	- [ ] 6.1 My Details (Customers)
-		- [ ] Edit Surname, Given Name, Postcode (new view model)
-		- [ ] Redirect from register to this page
-		- [ ] Create or Update table
-		- [ ] Success notification
+		- [x] Edit Surname, Given Name, Postcode (new view model)
+		- [X] Redirect from register to this page
+		- [x] Create or Update table
+		- [x] Success notification
 		- [ ] Check redirection works from oother pages
   	- [ ] 6.2 Search Rooms (Rooms)
 		- [ ] Build form - Number of Beds (select tag helper) , Check in Date, check out date, submit (tag helpers) 
