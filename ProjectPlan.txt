@@ -14,5 +14,5 @@ ASPNetUsers Tables is filled as expected
 
 Progesss So Far
 Created Plan (This document)
-1 Creating project in Visual Studio (VS) Mark
-5 Models Daniel
+1 Creating project in Visual Studio (VS)
+5 Models
