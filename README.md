@@ -27,12 +27,13 @@ TODO
 
 - [ ] 4 Home Page
 	- [ ] Images
-	- [ ] Carosel
-	- [ ] Columns/Links
+	- [ ] Carosel Tags
+	- [x] Columns/Links
 
 - [ ] 5 Models
 	- [x] Models
 	- [ ] Double check models
+	- [ ] add data to Database
 
 - [ ] 6  Customer Pages 
 	- [ ] Authorise pages
@@ -41,7 +42,8 @@ TODO
 		- [ ] Redirect from register to this page
 		- [ ] Create or Update table
 		- [ ] Success notification
- 	- [ ] 6.2 Search Rooms (Rooms)
+		- [ ] Check redirection works from oother pages
+  	- [ ] 6.2 Search Rooms (Rooms)
 		- [ ] Build form - Number of Beds (select tag helper) , Check in Date, check out date, submit (tag helpers) 
 		- [ ] booking View Model
 		- [ ] Raw SQL

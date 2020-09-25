@@ -1,0 +1,75 @@
+﻿@page
+@model GroupWebProject.Pages.Customers.MyDetailsModel
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "MyDetails";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<h4>My Details</h4>
+
+@if ((string)ViewData["ExistInDB"] == "true")
+{
+    <h4>Welcome, @UserManager.GetUserName(User)! You can edit your details below. </h4>
+}
+else if ((string)ViewData["ExistInDB"] == "false")
+{
+    <h4>Welcome, @UserManager.GetUserName(User)! You should enter your details below before browsing other links. </h4>
+}
+else if ((string)ViewData["SuccessDB"] == "success")
+{
+    <h4>Success, @UserManager.GetUserName(User)! Your details have been saved. </h4>
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="CustomerDetails.Surname" class="control-label"></label>
+                <input asp-for="CustomerDetails.Surname" class="form-control" />
+                <span asp-validation-for="CustomerDetails.Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerDetails.GivenName" class="control-label"></label>
+                <input asp-for="CustomerDetails.GivenName" class="form-control" />
+                <span asp-validation-for="CustomerDetails.GivenName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerDetails.Postcode" class="control-label"></label>
+                <input asp-for="CustomerDetails.Postcode" class="form-control" />
+                <span asp-validation-for="CustomerDetails.Postcode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (ViewData["SuccessDB"] != null)
+{
+    <hr />
+    <h5>
+        Thanks. You have successfully
+        @if ((string)ViewData["ExistInDB"] == "true")
+        {
+            <span> updated </span>
+        }
+        else
+        {
+            <span> added </span>
+        }
+        your details with your name
+        <strong>@Model.CustomerDetails.FullName</strong>,
+        and your post code <strong>@Model.CustomerDetails.Postcode</strong>.
+    </h5>
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

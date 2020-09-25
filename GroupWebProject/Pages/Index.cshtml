@@ -4,7 +4,94 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    /* Make the image occupy the full width, and be responsive (scale automatically) */
+    img {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<h1>Home</h1>
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/BBQ Beef.jpg" alt="BBQ Beef">
+            <div class="carousel-caption">
+                <h3>
+                    BBQ Beef
+                </h3>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="~/images/Chicken Pineapple.jpg" alt="Chicken Pineapple">
+            <div class="carousel-caption">
+                <h3>
+                    Chicken Pineapple
+                </h3>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="~/images/Pepperoni Feast.jpg" alt="Pepperoni Feast">
+            <div class="carousel-caption">
+                <h3>
+                    Pepperone Feast
+                </h3>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/Vegetarian.jpg" alt="Vegetarian">
+            <div class="carousel-caption">
+                <h3>
+                    Vegetarian
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <h3>
+            Welcome to the Three Sisters Hotel.
+        </h3>
+        <h5>
+            We are good at things.
+        </h5>
+    </div>
+    <div class="col-md-4">
+        <ul>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="https://www.bluemts.com.au/info/thingstodo/" >Things To Do</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="https://www.nationalparks.nsw.gov.au/visit-a-park/parks/blue-mountains-national-park">
+                    National Parks
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="http://www.bom.gov.au/places/nsw/MTM5/"> Weather</a>
+            </li>
+        </ul>
+    </div>
 </div>
