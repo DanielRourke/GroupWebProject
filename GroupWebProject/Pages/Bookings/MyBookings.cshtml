@@ -1,0 +1,60 @@
+﻿@page
+@model GroupWebProject.Pages.Bookings.MyBookingsModel
+@{
+    ViewData["Title"] = "MyBookings";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].TheCustomer.Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].TheCustomer.GivenName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].RoomID)
+            </th>
+            <th>
+                <a asp-route-sort="@ViewData["NextCheckInOrder"]">
+                    @Html.DisplayNameFor(model => model.Booking[0].CheckIn)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].CheckOut)
+            </th>
+            <th>
+                <a asp-route-sort="@ViewData["NextCostOrder"]">
+                    @Html.DisplayNameFor(model => model.Booking[0].Cost)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Booking)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TheCustomer.Surname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TheCustomer.GivenName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckIn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckOut)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

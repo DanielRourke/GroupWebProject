@@ -38,6 +38,7 @@ namespace GroupWebProject.Pages.Bookings
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            ViewData["RoomID"] = new SelectList(_context.Room, "ID", "ID");
 
             if (!ModelState.IsValid)
             {
@@ -95,15 +96,24 @@ namespace GroupWebProject.Pages.Bookings
             var searchQuery = _context.Room.FromSqlRaw(notQuery, roomID, checkIn, checkOut);
 
             var thing = await searchQuery.ToListAsync();
+
+            //TODO FIX BULLSHIT OUTPUT
             if (thing.Count == 1)
             {
+
                 _context.Booking.Add(Booking);
                 await _context.SaveChangesAsync();
+                ViewData["SuccessDB"] = $"Booked, {Booking.RoomID} on level {Booking.TheRoom.Level}" +
+                    $"from {Booking.CheckIn} to {Booking.CheckOut} for {Booking.Cost}";
             }
-            
-            //TODO BULLSHIT OUTPUT
+            else
+            {
+                ViewData["SuccessDB"] = "Booking not available";
+            }
 
-            return RedirectToPage("./Index");
+
+
+            return Page();
         }
     }
 }
