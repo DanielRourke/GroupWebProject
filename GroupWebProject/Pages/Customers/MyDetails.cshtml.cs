@@ -4,13 +4,14 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using GroupWebProject.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
 namespace GroupWebProject.Pages.Customers
 {
-
+    [Authorize(Roles = "Customers")]
     public class MyDetailsModel : PageModel
     {
 

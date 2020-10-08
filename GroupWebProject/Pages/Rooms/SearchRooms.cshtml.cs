@@ -27,7 +27,6 @@ namespace GroupWebProject.Pages.Rooms
         public RoomSearch RoomSearch { get; set; }
 
 
-
         public void OnGet()
         {
            ViewData["BedCount"]  = new SelectList(new[]
@@ -60,17 +59,16 @@ namespace GroupWebProject.Pages.Rooms
 
             if (!ModelState.IsValid)
             {
-                ViewData["Error"] = "You did something you were not meant to do";
                 return Page();
             }
             else if (RoomSearch.CheckIn < DateTime.Today)
             {
-                ViewData["Error"] = "Check in Date Must be in the future";
+                ModelState.AddModelError("RoomSearch.CheckIn", "Check in Date Must be in the future");
                 return Page();
             }
             else if (RoomSearch.CheckIn > RoomSearch.CheckOut)
             {
-                ViewData["Error"] = "Check Out Date Must after Check In Date";
+                ModelState.AddModelError("RoomSearch.CheckOut", "Check Out Date Must after Check In Date");
                 return Page();
             }
 

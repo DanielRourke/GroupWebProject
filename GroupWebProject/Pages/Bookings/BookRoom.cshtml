@@ -1,0 +1,37 @@
+﻿@page
+@model GroupWebProject.Pages.Bookings.BookRoomModel
+
+<h4>Booking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RoomBooking.RoomID" class="control-label"></label>
+                <select asp-for="RoomBooking.RoomID" class ="form-control" asp-items="ViewBag.RoomID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomBooking.CheckIn" class="control-label"></label>
+                <input asp-for="RoomBooking.CheckIn" class="form-control" />
+                <span asp-validation-for="RoomBooking.CheckIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomBooking.CheckOut" class="control-label"></label>
+                <input asp-for="RoomBooking.CheckOut" class="form-control" />
+                <span asp-validation-for="RoomBooking.CheckOut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
