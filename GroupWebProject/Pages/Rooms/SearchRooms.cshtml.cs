@@ -26,57 +26,78 @@ namespace GroupWebProject.Pages.Rooms
         [BindProperty]
         public RoomSearch RoomSearch { get; set; }
 
-        
+
 
         public void OnGet()
         {
-            ViewData["BedCount"] = new SelectList(new[]
+           ViewData["BedCount"]  = new SelectList(new[]
                         {
                             new { BedCount = "1", Name = "1 bed" },
-                            new { BedCount = "2", Name = "2 bed" },
-                            new { BedCount = "3", Name = "3 bed" },
+                            new { BedCount = "2", Name = "2 beds" },
+                            new { BedCount = "3", Name = "3 beds" },
                         },
                         "BedCount", "Name", 1);
+
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
+            int selected = 1;
+            if (RoomSearch != null)
+            {
+                selected = RoomSearch.BedCount;
+            }
+
             ViewData["BedCount"] = new SelectList(new[]
-{
+            {
                             new { BedCount = "1", Name = "1 bed" },
-                            new { BedCount = "2", Name = "2 bed" },
-                            new { BedCount = "3", Name = "3 bed" },
+                            new { BedCount = "2", Name = "2 beds" },
+                            new { BedCount = "3", Name = "3 beds" },
                         },
-                        "BedCount", "Name");
+            "BedCount", "Name", selected);
+
+
 
             if (!ModelState.IsValid)
             {
+                ViewData["Error"] = "You did something you were not meant to do";
+                return Page();
+            }
+            else if (RoomSearch.CheckIn < DateTime.Today)
+            {
+                ViewData["Error"] = "Check in Date Must be in the future";
+                return Page();
+            }
+            else if (RoomSearch.CheckIn > RoomSearch.CheckOut)
+            {
+                ViewData["Error"] = "Check Out Date Must after Check In Date";
                 return Page();
             }
 
-
-            var search = new SqliteParameter("search", RoomSearch.BedCount);
-
-            var searchQuery = _context.Room.FromSqlRaw("SELECT * FROM [Room] " +
-                "WHERE [Room].BedCount = @search", search);
-
-            /* The structure of your single SQL query should be as follows: first,
-            use a main query to find all rooms satisfying the bed count requirement; then, 
-            use a subquery to find all rooms that have overlapping with the customer’s 
-            intended period; finally, use the NOT IN operator to exclude those rooms found
-            by thesubquery from the main query. */
-
-            //find avaible bookins
-            //select rooms rooms where  
-            //find rooms with bedcount
-
-            //SELECT [Room].* FROM [Room] WHERE [Room].BedCount = (roomsearch.bed),
-
-            //SELECT BookingRoom.id 
+            //raw sql
+            var bedCount = new SqliteParameter("bedCount", RoomSearch.BedCount);
+            var checkIn = new SqliteParameter("checkIn", RoomSearch.CheckIn);
+            var checkOut = new SqliteParameter("checkOut", RoomSearch.CheckOut);
 
 
 
-            //   await _context.RoomQuery.ToListAsync();
+            String query = "SELECT [Room].* FROM Room " +
+                            "WHERE [Room].BedCount = @bedCount ";
+
+            String subQuery = "(SELECT [Room].ID " +
+                              "FROM [Room] " +
+                              "INNER JOIN [Booking] " +
+                              "ON [Room].ID = [Booking].RoomId " +
+                              "WHERE @checkIn < Booking.Checkout " +
+                              "AND Booking.CheckIn < @checkOut ) ";
+
+
+
+            String notQuery = query + " AND [Room].ID NOT IN " + subQuery;
+
+
+            var searchQuery = _context.Room.FromSqlRaw(notQuery, bedCount, checkIn ,checkOut);
+
 
             Rooms = await searchQuery.ToListAsync();
 

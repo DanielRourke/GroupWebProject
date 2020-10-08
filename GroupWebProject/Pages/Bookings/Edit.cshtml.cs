@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GroupWebProject.Data;
 using GroupWebProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GroupWebProject.Pages.Bookings
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly GroupWebProject.Data.ApplicationDbContext _context;
@@ -38,8 +40,8 @@ namespace GroupWebProject.Pages.Bookings
             {
                 return NotFound();
             }
-           ViewData["CustomerEmail"] = new SelectList(_context.Customer, "Email", "Email");
-           ViewData["RoomID"] = new SelectList(_context.Room, "ID", "Level");
+           ViewData["CustomerEmail"] = new SelectList(_context.Customer, "Email", "FullName");
+           ViewData["RoomID"] = new SelectList(_context.Room, "ID", "ID");
             return Page();
         }
 
@@ -51,6 +53,11 @@ namespace GroupWebProject.Pages.Bookings
             {
                 return Page();
             }
+
+            //TODO SQL VALIDATIION
+            //Check new dates are aviable
+            //dont include current booking in sub query 
+
 
             _context.Attach(Booking).State = EntityState.Modified;
 

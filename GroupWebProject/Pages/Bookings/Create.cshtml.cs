@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GroupWebProject.Pages.Bookings
 {
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
         private readonly GroupWebProject.Data.ApplicationDbContext _context;
@@ -23,8 +23,8 @@ namespace GroupWebProject.Pages.Bookings
 
         public IActionResult OnGet()
         {
-        ViewData["CustomerEmail"] = new SelectList(_context.Customer, "Email", "Email");
-        ViewData["RoomID"] = new SelectList(_context.Room, "ID", "Level");
+        ViewData["CustomerEmail"] = new SelectList(_context.Customer, "Email", "FullName");
+        ViewData["RoomID"] = new SelectList(_context.Room, "ID", "ID");
             return Page();
         }
 
@@ -39,6 +39,9 @@ namespace GroupWebProject.Pages.Bookings
             {
                 return Page();
             }
+
+            //TODO ADD SQL VALIDATION
+            //check dates are availablew
 
             _context.Booking.Add(Booking);
             await _context.SaveChangesAsync();

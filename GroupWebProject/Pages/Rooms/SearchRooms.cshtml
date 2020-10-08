@@ -25,59 +25,66 @@
                 <span asp-validation-for="RoomSearch.CheckOut" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Search" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
+@if (ViewData["Error"] != null)
+{
+<div>
+    <h4>
+        <span class="text-danger">@ViewData["Error"]</span>
+    </h4>
+</div>
+}
 
 
 @if (Model.Rooms != null)
 {
     <div>
         <hr />
-    @if (Model.Rooms.Count == 0)
-    {
-        <h4>
-            There is no Rooms during that time.
-        </h4>
-    }
-    else
-    {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Rooms[0].Level)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Rooms[0].BedCount)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Rooms[0].Price)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Rooms)
-                {
+        @if (Model.Rooms.Count == 0)
+        {
+            <h4>
+                There is no Rooms during that time.
+            </h4>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Level)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BedCount)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Price)
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rooms[0].Level)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rooms[0].BedCount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rooms[0].Price)
+                        </th>
+                        <th></th>
                     </tr>
-                }
-            </tbody>
-        </table>
-    }
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Rooms)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Level)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BedCount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
     </div>
 }
 

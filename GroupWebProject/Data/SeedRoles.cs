@@ -53,6 +53,10 @@ namespace GroupWebProject.Data
 
 
             }
+            else if(!(await UserManager.IsInRoleAsync(user, "Admin")))
+            {
+                await UserManager.AddToRoleAsync(user, "Admin");
+            }
 
         }
 
