@@ -1,0 +1,83 @@
+﻿@page
+@model GroupWebProject.Pages.Rooms.SearchRoomsModel
+@{
+    ViewData["Title"] = "Room Search";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RoomSearch.BedCount" class="control-label"></label>
+                <select asp-for="RoomSearch.BedCount" class="form-control" asp-items="ViewBag.BedCount"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomSearch.CheckIn" class="control-label"></label>
+                <input asp-for="RoomSearch.CheckIn" class="form-control" />
+                <span asp-validation-for="RoomSearch.CheckIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomSearch.CheckOut" class="control-label"></label>
+                <input asp-for="RoomSearch.CheckOut" class="form-control" />
+                <span asp-validation-for="RoomSearch.CheckOut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@if (Model.Rooms != null)
+{
+    <div>
+        <hr />
+    @if (Model.Rooms.Count == 0)
+    {
+        <h4>
+            There is no Rooms during that time.
+        </h4>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rooms[0].Level)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rooms[0].BedCount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Rooms[0].Price)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Rooms)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Level)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BedCount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    </div>
+}
+
