@@ -46,36 +46,36 @@ TODO
   	- [ ] 6.2 Search Rooms (Rooms)
 		- [x] Build form - Number of Beds (select tag helper) , Check in Date, check out date, submit (tag helpers) 
 		- [x] booking View Model
-		- [ ] Raw SQL
+		- [x] Raw SQL
 		- [x] Show Table
 		- [ ] NOT REQUIRED (add booking link)
 	- [ ] 6.3 Book a Room (Rooms)
-		- [ ]  create booking form - Room id, check in, check out, submit
-		- [ ] view model for this
-		- [ ] Raw SQL
+		- [X]  create booking form - Room id, check in, check out, submit
+		- [x] view model for this
+		- [x] Raw SQL
 		- [ ] notification
 	- [ ] 6.4 My Bookings
-		- [ ] Table SurName, given name, roomID, Checkin date, checkout date, Cost (this customer only)
-		- [ ] Toggle order Checkin and Cost
+		- [x] Table SurName, given name, roomID, Checkin date, checkout date, Cost (this customer only)
+		- [x] Toggle order Checkin and Cost
 
 - [ ] 7 Admin Pages 
 	- [ ] Authorise pages
 	- [ ] 7.1 Mangage Bookings
-		- [ ] create linnk
-		- [ ] Table - RoomID, Customer Surname, Customer Given Name, Checking in Date, Checking out Date, and Cost
-		- [ ] Links (delete detils)
-		- [ ] create page 
-			- [ ] room id
-			- [ ] Customer drop down with Full name
-			- [ ] check in
-			- [ ] check out
-			- [ ] cost (manual)
-			- [ ] submit
-			- [ ] CHeck if aviable Raw SQL
+		- [x] create linnk
+		- [x] Table - RoomID, Customer Surname, Customer Given Name, Checking in Date, Checking out Date, and Cost
+		- [x] Links (delete detils)
+		- [x] create page 
+			- [x] room id
+			- [x] Customer drop down with Full name
+			- [x] check in
+			- [x] check out
+			- [x] cost (manual)
+			- [x] submit
+			- [x] CHeck if aviable Raw SQL
 			- [ ] succes notification
 			- [ ] redirect (return page maybe ?)
 		- [ ] delete page
-			- [ ] details
+			- [x] details
 			- [ ] Delete confirmation
 	- [ ] 7.2 Statistics
 		- [ ] Table How many customers are located in each postcode. 'Postcode' and 'Number of Customers
