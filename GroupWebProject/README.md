@@ -74,6 +74,7 @@ TODO
 			- [x] CHeck if aviable Raw SQL
 			- [ ] succes notification
 			- [ ] redirect (return page maybe ?)
+		- [ ] Edit page 
 		- [ ] delete page
 			- [x] details
 			- [ ] Delete confirmation

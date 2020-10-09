@@ -1,0 +1,64 @@
+﻿@page
+@model GroupWebProject.Pages.Statistics.IndexModel
+@{
+    ViewData["Title"] = "Statistics";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<h2>Customer distribution with respect to postcodes</h2>
+<br />
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerPostcodeStatistics[0].Postcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerPostcodeStatistics[0].CustomerCount)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.CustomerPostcodeStatistics)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Postcode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerCount)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<h2>Booking distribution with respect to rooms</h2>
+<br />
+
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomBookingStats[0].Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomBookingStats[0].BookingCount)
+            </th>
+        </tr>
+
+        @foreach (var item in Model.RoomBookingStats)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingCount)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
