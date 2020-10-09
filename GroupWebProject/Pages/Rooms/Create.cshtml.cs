@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using GroupWebProject.Data;
 using GroupWebProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GroupWebProject.Pages.Rooms
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
         private readonly GroupWebProject.Data.ApplicationDbContext _context;

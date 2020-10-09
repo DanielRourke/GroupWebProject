@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using GroupWebProject.Data;
 using GroupWebProject.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace GroupWebProject.Pages.Customers
 {
+    [Authorize(Roles = "Admin")]
     public class DetailsModel : PageModel
     {
         private readonly GroupWebProject.Data.ApplicationDbContext _context;

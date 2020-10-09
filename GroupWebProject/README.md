@@ -14,15 +14,15 @@ TODO
 			- [x] Login
 		- [ ] customers links
 			- [x] Home (/Index)
-			- [ ] My Details (/Customers/MyDetails)
-			- [ ] Book a Room
-			- [ ] Search Rooms
-			- [ ] My Bookings
+			- [X] My Details (/Customers/MyDetails)
+			- [x] Book a Room
+			- [X] Search Rooms
+			- [X] My Bookings
 			- [x] Logout (default)
 		- [ ] admin links
 			- [x] Home
-			- [ ] Manage Bookings
-			- [ ] Statistics
+			- [X] Manage Bookings
+			- [x] Statistics
 			- [x] Logout (default)
 
 - [ ] 4 Home Page
@@ -36,7 +36,7 @@ TODO
 	- [ ] add data to Database
 
 - [ ] 6  Customer Pages 
-	- [ ] Authorise pages
+	- [X] Authorise pages
 	- [ ] 6.1 My Details (Customers)
 		- [x] Edit Surname, Given Name, Postcode (new view model)
 		- [X] Redirect from register to this page
@@ -59,7 +59,7 @@ TODO
 		- [x] Toggle order Checkin and Cost
 
 - [ ] 7 Admin Pages 
-	- [ ] Authorise pages
+	- [X] Authorise pages
 	- [ ] 7.1 Mangage Bookings
 		- [x] create linnk
 		- [x] Table - RoomID, Customer Surname, Customer Given Name, Checking in Date, Checking out Date, and Cost
@@ -71,14 +71,14 @@ TODO
 			- [x] check out
 			- [x] cost (manual)
 			- [x] submit
-			- [x] CHeck if aviable Raw SQL
+			- [X] CHeck if aviable Raw SQL
 			- [ ] succes notification
 			- [ ] redirect (return page maybe ?)
-		- [ ] Edit page 
+		- [X] Edit page 
 		- [ ] delete page
 			- [x] details
 			- [ ] Delete confirmation
-	- [ ] 7.2 Statistics
-		- [ ] Table How many customers are located in each postcode. 'Postcode' and 'Number of Customers
-		- [ ] Table How many bookings have been made for each room. 'Room ID' and 'Number of Bookings'
+	- [X] 7.2 Statistics
+		- [X] Table How many customers are located in each postcode. 'Postcode' and 'Number of Customers
+		- [X] Table How many bookings have been made for each room. 'Room ID' and 'Number of Bookings'
 

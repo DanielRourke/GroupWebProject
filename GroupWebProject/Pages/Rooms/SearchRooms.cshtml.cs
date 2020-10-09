@@ -9,9 +9,11 @@ using GroupWebProject.Data;
 using GroupWebProject.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.Sqlite;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GroupWebProject.Pages.Rooms
 {
+    [Authorize(Roles = "Customers")]
     public class SearchRoomsModel : PageModel
     {
         private readonly GroupWebProject.Data.ApplicationDbContext _context;

@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GroupWebProject.Data;
 using GroupWebProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GroupWebProject.Pages.Customers
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly GroupWebProject.Data.ApplicationDbContext _context;

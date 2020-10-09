@@ -88,8 +88,6 @@ namespace GroupWebProject.Pages.Bookings
                               "WHERE @checkIn < Booking.Checkout " +
                               "AND Booking.CheckIn < @checkOut ) ";
 
-
-
             String notQuery = query + " AND [Room].ID NOT IN " + subQuery;
 
 
@@ -104,7 +102,7 @@ namespace GroupWebProject.Pages.Bookings
                 _context.Booking.Add(Booking);
                 await _context.SaveChangesAsync();
                 ViewData["SuccessDB"] = $"Booked, {Booking.RoomID} on level {Booking.TheRoom.Level}" +
-                    $"from {Booking.CheckIn} to {Booking.CheckOut} for {Booking.Cost}";
+                            $"from {Booking.CheckIn:d} to {Booking.CheckOut:d} for {Booking.Cost:C2} ";
             }
             else
             {
